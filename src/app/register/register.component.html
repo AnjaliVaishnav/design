@@ -35,29 +35,47 @@
     </mat-grid-list>
 </div>
 
-<!-- login form -->
+<!-- register form -->
 <div class="col-md-12 container-fluid">
     <mat-grid-list cols="2" rowHeight="800px" gutterSize="1px">
         <mat-grid-tile colspan="1">
-            <div>
+            <div *ngIf="isShown">
                 <h1 class="text-dark font-weight-bolder text-center" style="font-family:Arial, Helvetica, sans-serif; font-size: xx-large;">Hello!</h1>
                 <p class="text-center text-muted lead">Sign in to your account.</p><br>
                 <button mat-flat-button class="text-muted social-button">
-                    <mat-icon style="width: 50px; height:30px"
+                    <mat-icon style="width: 50px; height:30px;"
                               svgIcon="logo"></mat-icon> Continue With Google
                 </button><br><br>
                 <button mat-flat-button class="text-muted social-button">
                     <img src="https://img.icons8.com/material/24/4a90e2/facebook-new.png"  height=30px/>  Continue With Facebook
                 </button><br><br>
-                <h3 class="text-muted"><span>Or Login With</span></h3><br>
+                <h3 class="text-muted"><span>Or Sign Up With</span></h3><br>
                 <form class="example-form" class="justify-content-center" novalidate>
                     <mat-form-field class="example-full-width" appearance="outline">
                         <input type="email" matInput [formControl]="nameFormControl" placeholder="Your Name">
                         <mat-error *ngIf="nameFormControl.hasError('minlength') && !nameFormControl.hasError('required')">
-                            Please enter a valid email address
+                            Atlease 3 letters are required
                         </mat-error>
                         <mat-error *ngIf="nameFormControl.hasError('required')">
                             Name is required. 
+                        </mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <input type="email" matInput [formControl]="emailFormControl" placeholder="Your Email">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is required. 
+                        </mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <input type="email" matInput [formControl]="mobileFormControl" placeholder="Your Mobile Number"  maxlength="10">
+                        <mat-error *ngIf="mobileFormControl.hasError('minlength') && !mobileFormControl.hasError('required')">
+                            !0 digits required.
+                        </mat-error>
+                        <mat-error *ngIf="mobileFormControl.hasError('required')">
+                            Mobile number is required. 
                         </mat-error>
                     </mat-form-field><br>
                     <mat-form-field class="example-full-width" appearance="outline">
@@ -69,15 +87,29 @@
                           Password is required. 
                         </mat-error>
                     </mat-form-field>
-                    <div>
-                        <mat-checkbox>Keep me logged in</mat-checkbox>
-                        <span class="float-right" style="padding-top: 3px;"><a href="#">Forgot Password</a></span>
-                    </div><br>
                     <div class="text-center">
-                        <button mat-raised-button type="button" value="submit" class="mi-button mr-3 text-white" style="background-color: #476ff5;" (click)="submit()">Sign In</button>
+                        <button mat-raised-button type="button" value="submit" class="mi-button mr-3 text-white" style="background-color: #476ff5;" (click)="submit()">Sign Up</button>
                     </div><br>
                     <div class="text-center text-muted display-5">
-                        Dont't have an account yet? <a class="text-decoration-underline" style="color: #476ff5;" routerLink="/register">Sign Up</a>
+                        Already have account? <a class="text-decoration-underline" style="color: #476ff5;" routerLink="/login">Sign In</a>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="show">
+                <form action="" method="POST" novalidate #otpVerify >
+                    <h2 class="text-center text-dark"><b>Verify</b></h2>
+                    <label class="text-center text-muted lead">OTP has been sent to your mobile <br> please enter same here to verify.</label><br>
+                    <div class="text-center">
+                        <ng-otp-input #ngOtpInput [config]="config" (onInputChange)="onOtpChange($event)" ></ng-otp-input>
+                    </div><br>
+                    <div class="text-center">
+                        <button mat-raised-button type="submit" class="mi-button mr-3 text-white" style="background-color: #476ff5;" (click)="verifyOtp()" routerLink="/login">Verify</button>
+                    </div>
+                    <span *ngIf="otp" class="o-t-p text-white"><b >Entered otp :- </b>{{otp}}</span><br>
+                    <b class="text-dark">Time Left :- <ngx-countdown #counter [time]="30000" format="ss" (finish)="onFinish()"></ngx-countdown>sec</b><br/>
+                    <div *ngIf="resend" class="text-muted text-center">
+                        Didn't receive the code?<br/>
+                        <button mat-raised-button type="button" value="submit" class="mi-button mr-3 text-white"  style="background-color: #476ff5;" (click)="reset()" >Resend code</button>
                     </div>
                 </form>
             </div>

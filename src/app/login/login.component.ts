@@ -28,9 +28,9 @@ loginForm:FormGroup;
     }
   ngOnInit(): void {
   }
-  emailFormControl = new FormControl('', [
+  nameFormControl = new FormControl('', [
     Validators.required,
-    Validators.email,
+    Validators.minLength(3),
   ]);
   passwordFormControl = new FormControl('', [
     Validators.required,
@@ -38,10 +38,9 @@ loginForm:FormGroup;
   ]);
   submit(){
     var getData={
-      username: this.emailFormControl.value,
+      username: this.nameFormControl.value,
       password: this.passwordFormControl.value
     }
-    alert( this.emailFormControl.value);
     this.api.addData(getData).subscribe(data=>{
       console.log(data);
     })

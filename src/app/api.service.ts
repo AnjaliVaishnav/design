@@ -13,5 +13,11 @@ export class ApiService {
    addData(getData: any){
     return this.http.post(this.url + 'loginuser', getData);
   }
-  
+
+  register(getData: any){
+    return this.http.post(this.url + 'tempregisteruser', getData);
+  }
+  verifyOtp(getData: any){
+    return this.http.post(this.url + 'registerusers', getData)
+  }
 }

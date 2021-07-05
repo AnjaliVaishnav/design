@@ -23,25 +23,26 @@
      background:#fff; 
      padding:0 10px; 
  }
-.mat-icon {
-  vertical-align: middle;
-}
-.social-button {
-    padding-bottom: 10px;
-    height: 50px; 
-    width: 400px;
-    font-size: 110%;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    -webkit-box-shadow: hsl(240, 23%, 94%) 0px 0 15px;
-    -moz-box-shadow: hsl(240, 23%, 94%) 0 0 15px;
-    box-shadow: hsl(240, 23%, 94%) 0 0 15px;
-} 
-.mat-flat-button:focus, .mat-raised-button:focus {
-    outline: none;
+ .mat-icon {
+    vertical-align: middle;
   }
-  .mat-raised-button{
-    border-radius: 50px;
-    width: 120px;
-  }
+  .social-button {
+      padding-bottom: 10px;
+      height: 50px; 
+      width: 400px;
+      font-size: 110%;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+      -webkit-box-shadow: hsl(240, 23%, 94%) 0px 0 15px;
+      -moz-box-shadow: hsl(240, 23%, 94%) 0 0 15px;
+      box-shadow: hsl(240, 23%, 94%) 0 0 15px;
+  } 
+  .mat-flat-button:focus{
+      outline: none;
+    }
+    .mat-raised-button{
+      border-radius: 50px;
+      width: 120px;
+      outline: none;
+    }
