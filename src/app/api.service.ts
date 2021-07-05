@@ -20,4 +20,7 @@ export class ApiService {
   verifyOtp(getData: any){
     return this.http.post(this.url + 'registerusers', getData)
   }
+  resend(getData : any){
+    return this.http.post(this.url + 'resendotp', getData)
+  }
 }

@@ -51,6 +51,7 @@ otp: any;
   mobileFormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(10),
+    Validators.pattern('^[1-9][0-9]*$'),
   ]);
   passwordFormControl = new FormControl('', [
     Validators.required,
@@ -58,10 +59,10 @@ otp: any;
   ]);
   submit(){
     var getData={
-      username: this.nameFormControl.value,
-      mobile: this.mobileFormControl.value,
-      password: this.passwordFormControl.value,
-      email: this.emailFormControl.value,
+      "username": this.nameFormControl.value,
+      "mobile": this.mobileFormControl.value,
+      "password": this.passwordFormControl.value,
+      "email": this.emailFormControl.value,
     }
     this.api.register(getData).subscribe((data:any=[])=>{
       console.log(data);
@@ -89,5 +90,12 @@ otp: any;
         var token = data[0].auth_key;
     })
   }
-  reset(){}
+  reset(){
+    var getData={
+      "tempuser":this.tempuser,
+      "mobile": this.mobileFormControl.value,
+    }
+    this.api.resend(getData).subscribe(data=>
+      console.log(data))
+  }
 }

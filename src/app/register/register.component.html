@@ -74,6 +74,9 @@
                         <mat-error *ngIf="mobileFormControl.hasError('minlength') && !mobileFormControl.hasError('required')">
                             !0 digits required.
                         </mat-error>
+                        <mat-error *ngIf="mobileFormControl.hasError('pattern') && !mobileFormControl.hasError('required')">
+                            Letters are not allowed.
+                        </mat-error>
                         <mat-error *ngIf="mobileFormControl.hasError('required')">
                             Mobile number is required. 
                         </mat-error>
@@ -97,8 +100,8 @@
             </div>
             <div *ngIf="show">
                 <form action="" method="POST" novalidate #otpVerify >
-                    <h2 class="text-center text-dark"><b>Verify</b></h2>
-                    <label class="text-center text-muted lead">OTP has been sent to your mobile <br> please enter same here to verify.</label><br>
+                    <h1 class="text-center text-dark"><b>Verify</b></h1>
+                    <label class="text-center text-muted lead">OTP has been sent to your mobile <br> please enter same here to verify.</label><br><br>
                     <div class="text-center">
                         <ng-otp-input #ngOtpInput [config]="config" (onInputChange)="onOtpChange($event)" ></ng-otp-input>
                     </div><br>
