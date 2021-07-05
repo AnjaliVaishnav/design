@@ -1,1 +1,151 @@
-<p>login works!</p>
+<!-- header -->
+<div class="container-fluid">
+    <!-- <mat-toolbar> -->
+      <mat-grid-list cols="8" rowHeight="2:1">
+        <mat-grid-tile colspan="2">
+            <div>
+                <a class="navbar-brand me-2 text-dark" href="" style="font-size: x-large;">
+                    <img src="assets/image/images.png" height="22" alt="logo"/>
+                    <span><b>Gram</b>Genie</span>
+                </a>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4">
+            <div>
+                <span  class="p-2 mr-3 active"><a href="#">Home</a></span>
+                <span  class="p-2 mr-3">About us</span>
+                <span  class="p-2  mr-3">Services</span>
+                <span  class="p-2  mr-3">Products</span>
+                <span class="p-2  mr-3">Contact</span>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+            <div class="text-center">
+                <button mat-raised-button class="mi-button mr-3 text-white" style="background-color: #476ff5;">Explore</button>
+            </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    <!-- </mat-toolbar>    -->
+</div>
+
+<!-- how to buy -->
+<div class="col-md-12 container-fluid">
+    <mat-grid-list cols="1" rowHeight="9:1">
+        <mat-grid-tile class="text-white font-weight-bolder text-center text-xl-start" style=" font-size: 45px; background:linear-gradient(0deg, rgba(71, 111, 245, 0.8), rgba(71, 111, 245, 0.8)), url(assets/image/back.jpg) right no-repeat; background-size:contain;">Sign In</mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<!-- login form -->
+<div class="col-md-12 container-fluid">
+    <mat-grid-list cols="2" rowHeight="800px" gutterSize="1px">
+        <mat-grid-tile colspan="1">
+            <div>
+                <h1 class="text-dark font-weight-bolder text-center" style="font-family:Arial, Helvetica, sans-serif; font-size: xx-large;">Hello!</h1>
+                <p class="text-center text-muted lead">Sign in to your account.</p><br>
+                <button mat-flat-button class="text-muted social-button">
+                    <mat-icon style="width: 50px; height:30px"
+                              svgIcon="logo"></mat-icon> Continue With Google
+                </button><br><br>
+                <button mat-flat-button class="text-muted social-button">
+                    <img src="https://img.icons8.com/material/24/4a90e2/facebook-new.png"  height=30px/>  Continue With Facebook
+                </button><br><br><br>
+                <h3 class="text-muted"><span>Or Login With</span></h3><br>
+                <form class="example-form" class="justify-content-center" novalidate>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <input type="email" matInput [formControl]="emailFormControl" placeholder="Your Email">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is required. 
+                        </mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <input type="password" matInput [formControl]="passwordFormControl" placeholder="Your Password">
+                        <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+                          Atleast 8 characters required.
+                        </mat-error>
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
+                          Password is required. 
+                        </mat-error>
+                    </mat-form-field>
+                    <div>
+                        <mat-checkbox>Keep me logged in</mat-checkbox>
+                        <span class="float-right" style="padding-top: 3px;"><a href="#">Forgot Password</a></span>
+                    </div><br>
+                    <div class="text-center">
+                        <button mat-raised-button class="mi-button mr-3 text-white" style="background-color: #476ff5;" [disabled]="!loginForm.valid">Sign In</button>
+                    </div><br>
+                    <div class="text-center text-muted display-5">
+                        Dont't have an account yet? <a class="text-decoration-underline" style="color: #476ff5;" href="#">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <div>
+                <img src="assets/image/images1.jpg" alt="image" height="400px" width="500px" class="img-fluid border-0 rounded-left"/>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<!-- footer -->
+<div class="col-md-12 container-fluid bg-light" style=" padding-left:100px;">
+    <mat-grid-list cols="4" rowHeight="370px">
+        <mat-grid-tile>
+            <div>
+                <h2>GramGenie</h2>
+                <p class="text-justtify text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  consectetur adipiscing elit  consectetur adipiscing elit  consectetur adipiscing elit  consectetur adipiscing elit  consectetur adipiscing elit</p><br>
+                <img src="https://img.icons8.com/material/24/4a90e2/instagram-new--v1.png"/>
+                <img src="https://img.icons8.com/material/24/4a90e2/facebook--v1.png"/>
+                <img src="https://img.icons8.com/material/24/4a90e2/linkedin--v1.png"/>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <h2>About GramGenie</h2>
+                <p class="text-muted">About us</p>
+                <p class="text-muted">Contact us</p>
+                <p class="text-muted">Blog</p>
+                <p class="text-muted">Help</p>
+                <p class="text-muted">Privacy Policy</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <h2>Top Influencers</h2>
+                <p class="text-muted">Lorem ipsum</p>
+                <p class="text-muted">Lorem ipsum</p>
+                <p class="text-muted">Lorem ipsum</p>
+                <p class="text-muted">Lorem ipsum</p>
+                <p class="text-muted">Lorem ipsum</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <h2>Top Trending</h2>
+                <p class="text-muted"><a href="#">#Loremipsum</a></p>
+                <p class="text-muted"><a href="#">#Loremipsum</a></p>
+                <p class="text-muted"><a href="#">#Loremipsum</a></p>
+                <p class="text-muted"><a href="#">#Loremipsum</a></p>
+                <p class="text-muted"><a href="#">#Loremipsum</a></p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div class="container-fluid bg-dark bg-gradient">
+    <mat-grid-list cols="2" rowHeight="12:1">
+        <mat-grid-tile colspan="1" >
+                <p class="text-white" style="font-size: 14px;"><mat-icon>copyright</mat-icon>Copyright GramGenie 2020.All Right Reserved.</p>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" >
+            <div>
+                <img src="https://img.icons8.com/color/48/000000/visa.png"/>
+                <img src="https://img.icons8.com/color/48/4a90e2/discover.png"/>
+                <img src="https://img.icons8.com/fluent/48/000000/mastercard.png"/>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

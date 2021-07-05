@@ -16,6 +16,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,11 @@ import { LoginComponent } from './login/login.component';
     MatTabsModule,
     MatListModule,
     MatExpansionModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
