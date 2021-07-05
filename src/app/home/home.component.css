@@ -1,0 +1,47 @@
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+.matInput{
+  border-radius: 10px;
+}
+.mi-button{
+    background-color:#476ff5;
+}
+.myGridList {
+    height: 100%;
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+hr {
+  background-color:#4f4acf; 
+  width: 30%;
+  margin-left: -3px;
+}
+.mat-icon {
+  vertical-align: middle;
+}
+::ng-deep .mat-form-field-outline-start {
+  border-radius: 28px 0 0 28px !important;
+  min-width: 20px !important;
+}
+::ng-deep .mat-form-field-outline-end {
+  border-radius: 0 28px 28px 0 !important;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { 
+  padding: 0.4em 0px !important;
+}
+::ng-deep .mat-form-field-appearance-outline{
+   color:#476ff5; 
+  margin-top: 15px;
+}
+#img {
+  width: 400px;
+  height: auto;
+  border-radius: 5px;;
+  box-shadow:-10px 10px #476ff5 ;
+}
+.mat-accordion .mat-expansion-panel:not(.mat-expanded),
+.mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+   margin-bottom: 20px;
+}
