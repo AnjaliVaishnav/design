@@ -44,3 +44,41 @@
     border-radius: 50px;
     width: 120px;
   }
+
+
+
+
+    /* <form class="example-form" novalidate [formGroup]="loginForm">
+                    <mat-form-field class="example-full-width form-group" appearance="outline">
+                        <input type="email" class="form-control" matInput formControlName="email" placeholder="Your Email">
+                        <span *ngIf="loginForm.controls['email'].errors?.required">
+                            <mat-error *ngIf="loginForm.controls['email'].errors?.required">
+                                Email is required. 
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.controls['email'].errors?.pattern">
+                                Please enter a valid email address
+                            </mat-error>
+                        </span>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width form-group" appearance="outline">
+                        <input type="password" class="form-control" matInput formControlName="password" placeholder="Your Password">
+                        <span *ngIf="loginForm.controls['email'].errors?.required">
+                            <mat-error *ngIf="loginForm.controls['password'].errors?.required">
+                                Password is required.
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.controls['password'].errors?.minlength">
+                              Atleast 8 characters required. 
+                            </mat-error>
+                        </span>
+                    </mat-form-field>
+                    <div>
+                        <mat-checkbox color="primary">Keep me logged in</mat-checkbox>
+                        <span class="float-right" style="padding-top: 3px;"><a href="#">Forgot Password</a></span>
+                    </div><br>
+                    <div class="text-center">
+                        <button mat-raised-button class="mi-button mr-3 text-white" style="background-color: #476ff5;" (click)="submit()" [disabled]="!loginForm.valid" >Sign In</button>
+                    </div><br>
+                    <div class="text-center text-muted display-5">
+                        Dont't have an account yet? <a class="text-decoration-underline" style="color: #476ff5;" href="#">Sign Up</a>
+                    </div>
+                </form> */
