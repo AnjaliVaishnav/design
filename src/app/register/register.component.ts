@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { SocialAuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
+import { GoogleLoginProvider,FacebookLoginProvider,AmazonLoginProvider,VKLoginProvider,MicrosoftLoginProvider} from 'angularx-social-login';
 
 const googleLogoURL = 
 "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
@@ -17,11 +21,11 @@ show: boolean = false;
 isShown: boolean = true;
 resend: boolean = false;
 otp: any;
-  tempuser: any;
+tempuser: any;
+user!: SocialUser;
+GoogleLoginProvider = GoogleLoginProvider;
 
-  constructor (
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer, private fb : FormBuilder, private api: ApiService) {
+  constructor (private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private fb : FormBuilder, private api: ApiService, private router: Router, private authService: SocialAuthService) {
       this.matIconRegistry.addSvgIcon(
       "logo",
       this.domSanitizer.bypassSecurityTrustResourceUrl(googleLogoURL));
@@ -39,6 +43,9 @@ otp: any;
     };
 
   ngOnInit(): void {
+    this.authService.authState.subscribe(user => {
+      this.user = user;
+    });
   }
   nameFormControl = new FormControl('', [
     Validators.required,
@@ -57,6 +64,21 @@ otp: any;
     Validators.required,
     Validators.minLength(8),
   ]);
+  showToasterSuccess(){
+      this.api.showSuccess("Registration successfully !!", "Please Login! ")
+  }
+  
+  showToasterError(){
+      this.api.showError("Something is wrong", "Invalid Inputs")
+  }
+
+  showToasterWarning(){
+      this.api.showWarning("Please try with other mobile number and name", "Aleady user")
+  }
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
   submit(){
     var getData={
       "username": this.nameFormControl.value,
@@ -68,9 +90,14 @@ otp: any;
       console.log(data);
       this.tempuser = data[0].tempuser;
       console.log("tempuser",this.tempuser);
+      if(data[0].status == false){
+        this.showToasterWarning();
+      }
+      else{
+        this.isShown = !this.isShown;
+        this.show = !this.show;
+      }
     })
-    this.isShown = !this.isShown;
-    this.show = !this.show;
   }
   onFinish(){
     this.resend = !this.resend;
@@ -87,7 +114,13 @@ otp: any;
       }
       this.api.verifyOtp(getData).subscribe((data: any= []) => { 
         console.log("data",data[0]);
-        var token = data[0].auth_key;
+        if(data[0].status == true){
+          this.showToasterSuccess();
+          this.router.navigate(['/login']);
+        }
+        else{
+          this.showToasterError();
+        }
     })
   }
   reset(){

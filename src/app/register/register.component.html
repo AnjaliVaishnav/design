@@ -42,7 +42,7 @@
             <div *ngIf="isShown">
                 <h1 class="text-dark font-weight-bolder text-center" style="font-family:Arial, Helvetica, sans-serif; font-size: xx-large;">Hello!</h1>
                 <p class="text-center text-muted lead">Sign in to your account.</p><br>
-                <button mat-flat-button class="text-muted social-button">
+                <button mat-flat-button class="text-muted social-button" (click)="signInWithGoogle()">
                     <mat-icon style="width: 50px; height:30px;"
                               svgIcon="logo"></mat-icon> Continue With Google
                 </button><br><br>
@@ -106,7 +106,7 @@
                         <ng-otp-input #ngOtpInput [config]="config" (onInputChange)="onOtpChange($event)" ></ng-otp-input>
                     </div><br>
                     <div class="text-center">
-                        <button mat-raised-button type="submit" class="mi-button mr-3 text-white" style="background-color: #476ff5;" (click)="verifyOtp()" routerLink="/login">Verify</button>
+                        <button mat-raised-button type="submit" class="mi-button mr-3 text-white" style="background-color: #476ff5;" (click)="verifyOtp()" >Verify</button>
                     </div>
                     <span *ngIf="otp" class="o-t-p text-white"><b >Entered otp :- </b>{{otp}}</span><br>
                     <b class="text-dark">Time Left :- <ngx-countdown #counter [time]="30000" format="ss" (finish)="onFinish()"></ngx-countdown>sec</b><br/>
