@@ -1,1 +1,122 @@
-<p>form works!</p>
+<div class="row">
+    <div class="col-md-5">
+        <form class="example-form text-center" novalidate [formGroup]="form">
+            <h1 class="text-dark font-weight-bolder text-center" style="font-family:Arial, Helvetica, sans-serif; font-size: xx-large;">Hello!</h1>
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput type="date" formControlName="dateFormControl" [(ngModel)]="data.dateFormControl">
+                <mat-error *ngIf="form.controls['dateFormControl'].errors?.required">
+                    Date is required. 
+                </mat-error>
+              </mat-form-field><br>
+            <mat-form-field>
+                <mat-label class="text-muted">company</mat-label>
+                <mat-select disableRipple formControlName="company" [(ngModel)]="data.company">
+                    <mat-option value="Img Global Infotech">Img Global Infotech</mat-option>
+                    <mat-option value="Option 2">Option 2</mat-option>
+                    <mat-option value="Option 3">Option 3</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['company'].errors?.required">
+                    Choose any one option. 
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field>
+                <mat-label class="text-muted">Working Type</mat-label>
+                <mat-select disableRipple formControlName="type" [(ngModel)]="data.type" >
+                    <mat-option value="Learning">Learning</mat-option>
+                    <mat-option value="fantasy">fantasy</mat-option>
+                    <mat-option value="Option 3">Option 3</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['type'].errors?.required">
+                    Choose any one option. 
+                </mat-error>
+            </mat-form-field><br>
+            <mat-radio-group aria-label="Select an option" formControlName="typeFormControl" [(ngModel)]="data.typeFormControl" color="primary">
+                <mat-label>Work Type</mat-label><br>
+                <mat-radio-button value="New">New</mat-radio-button>
+                <mat-radio-button value="Improvement">Improvement</mat-radio-button>
+                <mat-error *ngIf="form.controls['typeFormControl'].errors?.invalid">
+                    Mark any one option. 
+                </mat-error>
+            </mat-radio-group><br>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="descFormControl" [(ngModel)]="data.descFormControl" ></textarea>
+                <mat-error *ngIf="form.controls['descFormControl'].errors?.required">
+                    Description is required.  
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Module</mat-label>
+                <textarea matInput formControlName="moduleFormControl" [(ngModel)]="data.moduleFormControl"></textarea>
+                <mat-error *ngIf="form.controls['moduleFormControl'].errors?.required">
+                    Module name is required. 
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Working hour</mat-label>
+                <input type="text" matInput formControlName="hourFormControl" [(ngModel)]="data.hourFormControl" maxLength="2">
+                <mat-error *ngIf="form.controls['hourFormControl'].errors?.required">
+                    Working Hour is required. 
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Working Minute</mat-label>
+                <input type="text" matInput formControlName="minFormControl" [(ngModel)]="data.minFormControl" maxlength="2">
+                <mat-error *ngIf="form.controls['minFormControl'].errors?.required">
+                    Working minute is required. 
+                </mat-error>
+            </mat-form-field><br>
+            <mat-radio-group aria-label="Select an option" formControlName="statusFormControl" [(ngModel)]="data.statusFormControl" color="primary">
+                <mat-label>Work status</mat-label><br>
+                <mat-radio-button value="Complete">Complete</mat-radio-button>
+                <mat-radio-button value="Pending">Pending</mat-radio-button>
+                <mat-error *ngIf="form.controls['statusFormControl'].errors?.invalid">
+                    Mark any one option. 
+                </mat-error>
+            </mat-radio-group><br>
+            <div class="text-center">
+                <button mat-raised-button type="button" value="submit" class="mi-button mr-3 text-white btn"  style="background-color: #476ff5;" (click)="submit()">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        <table border="2" class="text-center">
+            <tr>
+                <th><mat-checkbox color="primary" (change)="isSelected = !isSelected"></mat-checkbox></th>
+                <th><button class="btn btn-primary" (click)="deleteAll()">Remove All</button></th>
+            </tr>
+            <tr>
+                <th>Checkbox</th>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Company</th>
+                <th>Working Type</th>
+                <th>Work Type</th>
+                <th>Description</th>
+                <th>Module Name</th>
+                <th>Working Hour</th>
+                <th>Working Minute</th>
+                <th>Working Sattus</th>
+                <th>remove</th>
+            </tr>
+            <tr *ngFor="let item of items; let i=index">
+                <td><mat-checkbox #checkbox color="primary" [checked]="isSelected" (change)="selectID(i)"></mat-checkbox></td>
+                <!-- <td>{{i+1}}</td> -->
+                <td>{{item.dateFormControl}}</td>
+                <td>{{item.company}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.typeFormControl}}</td>
+                <td>{{item.descFormControl}}</td>
+                <td>{{item.moduleFormControl}}</td>
+                <td>{{item.hourFormControl}}</td>
+                <td>{{item.minFormControl}}</td>
+                <td>{{item.statusFormControl}}</td>
+                <td><button class="btn btn-primary" (click)="delete(i)">Remove</button></td>
+            </tr>
+            
+        </table>
+        
+    </div>
+    
+</div>

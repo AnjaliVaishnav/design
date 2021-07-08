@@ -27,6 +27,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider,FacebookLoginProvider,AmazonLoginProvider,VKLoginProvider,MicrosoftLoginProvider } from 'angularx-social-login';
 import { FormComponent } from './form/form.component';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,11 @@ import { FormComponent } from './form/form.component';
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     SocialLoginModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    // MatMomentDateModule,
+    MatTableModule,
   ],
   providers: [
     {

@@ -1,0 +1,15 @@
+.mat-radio-button ~ .mat-radio-button {
+
+    margin-left: 16px;
+  }
+::ng-deep .mat-label{
+      /* vertical-align: middle; */
+      margin-top:-18px;
+  }
+  input[type="radio"] {
+    margin-top: -1px;
+    vertical-align: middle;
+  }
+  th, td {
+      padding: 8px;
+  }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 import { SocialAuthService } from 'angularx-social-login';
 import { SocialUser } from 'angularx-social-login';
 import {

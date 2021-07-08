@@ -50,9 +50,9 @@
                     <img src="https://img.icons8.com/material/24/4a90e2/facebook-new.png"  height=30px/>  Continue With Facebook
                 </button><br><br>
                 <h3 class="text-muted"><span>Or Sign Up With</span></h3><br>
-                <form class="example-form" class="justify-content-center" novalidate>
+                <form class="example-form" class="text-center" novalidate>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <input type="email" matInput [formControl]="nameFormControl" placeholder="Your Name">
+                        <input type="text" matInput [formControl]="nameFormControl" placeholder="Your Name">
                         <mat-error *ngIf="nameFormControl.hasError('minlength') && !nameFormControl.hasError('required')">
                             Atlease 3 letters are required
                         </mat-error>
@@ -70,7 +70,7 @@
                         </mat-error>
                     </mat-form-field><br>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <input type="email" matInput [formControl]="mobileFormControl" placeholder="Your Mobile Number"  maxlength="10">
+                        <input type="number" matInput [formControl]="mobileFormControl" placeholder="Your Mobile Number"  maxlength="10">
                         <mat-error *ngIf="mobileFormControl.hasError('minlength') && !mobileFormControl.hasError('required')">
                             !0 digits required.
                         </mat-error>
